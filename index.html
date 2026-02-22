@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jordan Spencer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0c0c0c; --surface: #111111; --border: #1e1e1e;
+      --text: #d4cfc8; --muted: #5a5550; --accent: #c9b89a; --dim: #2a2520;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px; line-height: 1.7; min-height: 100vh; overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 256px; pointer-events: none; z-index: 1000; opacity: 0.35;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 2rem; }
+    header { padding: 6rem 0 4rem; opacity: 0; animation: fadeUp 0.9s ease forwards 0.1s; }
+    .eyebrow { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.2rem; }
+    h1 { font-family: 'EB Garamond', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.4rem); font-weight: 400; letter-spacing: -0.01em; line-height: 1.1; color: var(--text); margin-bottom: 1.4rem; }
+    .bio { font-size: 1.05rem; color: var(--muted); max-width: 520px; line-height: 1.75; }
+    .bio em { color: var(--accent); font-style: italic; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+    section { opacity: 0; animation: fadeUp 0.9s ease forwards; }
+    section:nth-of-type(1) { animation-delay: 0.25s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.55s; }
+    .section-label { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .project { border: 1px solid var(--border); padding: 1.75rem 2rem; margin-bottom: 1rem; transition: border-color 0.25s, background 0.25s; }
+    .project:hover { border-color: var(--dim); background: var(--surface); }
+    .project-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.6rem; }
+    .project-name { font-size: 1.1rem; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+    .project-status { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .project-status.active { color: #7a9e7e; }
+    .project-status.inprogress { color: #b8922a; }
+    .project-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+    .links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .link { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 0.45rem 0.85rem; transition: color 0.2s, border-color 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .link:hover { color: var(--accent); border-color: var(--accent); }
+    .link svg { width: 12px; height: 12px; fill: currentColor; }
+    footer { padding: 4rem 0 5rem; opacity: 0; animation: fadeUp 0.9s ease forwards 0.7s; }
+    .footer-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { header { padding: 4rem 0 3rem; } .project { padding: 1.3rem 1.4rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="eyebrow">Jordan Spencer &mdash; Maryland, USA</p>
+      <h1>Building at the<br><em>frontier of AI.</em></h1>
+      <p class="bio">I make things with AI. Focused on <em>agentic systems</em>, knowledge infrastructure, and products that shouldn't exist yet but will. Building in public.</p>
+    </header>
+    <hr class="divider" />
+    <section>
+      <p class="section-label">Projects</p>
+      <div class="project">
+        <div class="project-header">
+          <span class="project-name">Colony</span>
+          <span class="project-status active">Active</span>
+        </div>
+        <p class="project-desc">Recursive peer-reviewed research engine. Multiple named AI agents — Seeder, Explorer, Critic, Synthesizer, Verifier — collaborate to build persistent knowledge graphs. Academic paper retrieval, citation verification, dark academia interface.</p>
+      </div>
+      <div class="project">
+        <div class="project-header">
+          <span class="project-name">Yomo</span>
+          <span class="project-status inprogress">In Progress</span>
+        </div>
+        <p class="project-desc">AI trading companion for Solana. A small creature inspired by Tamagotchi that grows with your trading history. Daily streaks, personality system, privacy controls. The market has moods; so does Yomo.</p>
+      </div>
+    </section>
+    <hr class="divider" />
+    <section>
+      <p class="section-label">Links</p>
+      <div class="links">
+        <a href="https://github.com/jpcspencer" target="_blank" rel="noopener" class="link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97.004 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a href="https://x.com/jpcspencer" target="_blank" rel="noopener" class="link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X
+        </a>
+        <a href="mailto:jordanpspn@gmail.com" class="link">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Contact
+        </a>
+      </div>
+    </section>
+    <hr class="divider" />
+    <footer>
+      <p class="footer-text">Maryland, USA &mdash; Open to remote AI roles &mdash; 2
